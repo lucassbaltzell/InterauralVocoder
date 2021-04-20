@@ -32,8 +32,8 @@ env_accumulate_LE = zeros(size(x));
 env_accumulate_RE = zeros(size(x));
  
 %get log-spaced cutoff frequencies
-Fctfs = logspace(log10(Fmin),log10(Fmax),Nband);
-[sos_coefs,g_coefs] = filter_bands_LB(Fctfs,Fs,4);
+Fctfs = logspace(log10(Fmin),log10(Fmax),Nband+1);
+[sos_coefs,g_coefs] = get_butter_coefs(Fctfs,Fs,4);
 
 %filter into bands
 sig_filt = zeros(length(x),Nband);
@@ -42,8 +42,8 @@ for fb = 1:Nband
 end
 
 %Generate noise carriers following Hartman & Cho (2013) JASA
-noise1 = pinknoise(length(x),1,[20 Fs/2],Fs);
-noise2 = pinknoise(length(x),1,[20 Fs/2],Fs);
+noise1 = pinknoise(length(x),1,[20 Fs/3],Fs);
+noise2 = pinknoise(length(x),1,[20 Fs/3],Fs);
 
 alpha = sqrt((rcoef + 1)/2);
 beta  = sqrt(1 - alpha^2);

@@ -29,11 +29,11 @@ if filt_flg == 1
     if fs < 44000
         error('sampling rate too low')
     end
-    %apply high-pass filter at 20 Hz
+    %apply high-pass filter
     [b,a] = butter(2,flims(1)/(fs/2),'high');
     y = filter(b,a,y);
     
-    %apply low-pass filter at 20 kHz
+    %apply low-pass filter
     [b,a] = butter(2,flims(2)/(fs/2),'low');
     y = filter(b,a,y);
 end
