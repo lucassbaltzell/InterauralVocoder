@@ -5,6 +5,7 @@ function y = Noise_vocoder_rcoef(x,Fmin,Fmax,Nband,Env_Cutoff,Fs,rcoef)
 %prevent temporal distortions, zero-phase Butterworth filters are used to
 %extract bands
 
+%y: vocoded output (stereo)
 %x: mono input (to yield stereo output)
 %Fmin: minimum frequency
 %Fmax: maximum frequency

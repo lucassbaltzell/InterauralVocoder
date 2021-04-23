@@ -1,6 +1,8 @@
 function y = pinknoise(n,filt_flg,flims,fs)
 %generate pink noise for a vector with n samples. If desired, apply
 %high-pass and low-pass filter, requiring a sample rate
+
+%y: vector of pink noise with n samples
 %n = number of samples
 %filt_flg: 0 if no filter, 1 if filter
 %flims: desired high-pass and low-pass cutoffs
