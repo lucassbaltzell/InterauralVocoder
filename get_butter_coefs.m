@@ -3,6 +3,8 @@ function [sos,g] = get_butter_coefs(cutoffs,Fs,N)
 %section representation for each band, which is more numerically stable for
 %higher-order filters
 
+%created by Luke Baltzell 04/19/21
+
 if nargin == 2
     N = 8; %48 dB/octave
 end
